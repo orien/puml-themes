@@ -27,8 +27,6 @@
 !$CYAN = "2aa198"
 !$GREEN = "859900"
 
-!$ACCENT = $CYAN
-!$ACCENTDARK = $BLUE
 !$PRIMARY_FONT_COLOR = $BASE00
 !$SECONDARY_FONT_COLOR = $BASE01
 !$ARROW_COLOR = $BASE00
@@ -58,8 +56,7 @@
 !endprocedure
 
 !procedure accent_style()
-  BackgroundColor $ACCENT
-  BorderColor $ACCENTDARK
+  light_style()
 !endprocedure
 
 !procedure arrow_style()
