@@ -1,0 +1,12 @@
+url: 'https://raw.githubusercontent.com/orien/puml-themes/main/themes/'
+themes:
+  - solarized-light
+diagrams:
+  - name: Sequence
+    puml:
+      - puml/sequence/participants.puml
+      - puml/sequence/lifeline.puml
+      - puml/sequence/notes.puml
+      - puml/sequence/groups.puml
+      - puml/sequence/participants-encompass.puml
+      - puml/sequence/divider.puml

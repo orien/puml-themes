@@ -1,0 +1,111 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'zlib'
+
+# Responsible for updating the gallery section in a markdown file.
+class GalleryMarkdown
+  def self.write_gallery(filename)
+    File.open(filename, 'r+') do |file|
+      gm = new(file, filename)
+      gm.read_until_found('gallery:start')
+      pos = file.pos
+      end_line = gm.read_until_found('gallery:end')
+      lines = file.eof? ? [] : file.readlines
+      file.pos = pos
+      yield gm
+      file.write(end_line, *lines)
+    end
+  end
+
+  def initialize(file, filename)
+    @file = file
+    @filename = filename
+  end
+
+  def section(name)
+    @file.puts(nil, "### #{name}", nil)
+  end
+
+  def diagram(name:, image:, link:)
+    @file.puts("[![#{name}](#{image})](#{link})", nil)
+  end
+
+  def read_until_found(text)
+    line = ''
+    until line.include? text
+      raise "The string '#{text}' was not found in #{@filename}" if @file.eof?
+      line = @file.readline
+    end
+    line
+  end
+end
+
+# Encode PUML diagram text into a string suitable for enclusion in a URL.
+# For context, see https://plantuml.com/text-encoding
+module PlantUmlEncoding
+  class << self
+    def encode(puml)
+      # `echo '#{puml}' | plantuml -pipe -encodeurl`
+      deflated = Zlib::Deflate.deflate(puml, Zlib::BEST_COMPRESSION)
+      deflated.each_codepoint.each_slice(3).each_with_object('~1') do |bytes, encoded|
+        encoded << append_3_bytes(*bytes)
+      end
+    end
+
+    private
+
+    def append_3_bytes(b1, b2 = 0, b3 = 0)
+      c1 = b1 >> 2
+      c2 = ((b1 & 0x3) << 4) | (b2 >> 4)
+      c3 = ((b2 & 0xF) << 2) | (b3 >> 6)
+      c4 = b3 & 0x3F
+      '' << encode_6_bit(c1 & 0x3F) << encode_6_bit(c2 & 0x3F) << encode_6_bit(c3 & 0x3F) << encode_6_bit(c4 & 0x3F)
+    end
+
+    def encode_6_bit(b)
+      return 48 + b if b < 10
+      b -= 10
+      return 65 + b if b < 26
+      b -= 26
+      return 97 + b if b < 26
+      b -= 26
+      return '-' if b == 0
+      return '_' if b == 1
+      '?'
+    end
+  end
+end
+
+# Load the configuration file
+file_context = File.expand_path('..', __dir__)
+config = YAML.load_file(File.expand_path('config/gallery.yaml', file_context), symbolize_names: true)
+
+# Load each of the example PUML files
+config[:diagrams].each do |diagram|
+  diagram[:puml].map! do |puml|
+    filename = File.expand_path(puml, file_context)
+    contents = File.readlines(filename)
+    { filename:, contents: }
+  end
+end
+
+# Populate the gallery section in each of the theme markdown files with example diagrams
+config[:themes].each do |theme|
+  filename = File.expand_path("../../themes/puml-theme-#{theme}.md", file_context)
+  GalleryMarkdown.write_gallery(filename) do |md|
+    theme_line = "!theme #{theme} from #{config[:url]}\n"
+    config[:diagrams].each do |diagram|
+      md.section(diagram[:name])
+      diagram[:puml].each do |puml|
+        themed_puml = [puml[:contents][0], theme_line, *puml[:contents][1..]].join
+        encoded_diagram = PlantUmlEncoding.encode(themed_puml)
+        md.diagram(
+          name: File.basename(puml[:filename], '.puml'),
+          image: "https://www.plantuml.com/plantuml/svg/#{encoded_diagram}",
+          link: "https://www.plantuml.com/plantuml/uml/#{encoded_diagram}"
+        )
+      end
+    end
+  end
+end
