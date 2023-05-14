@@ -1,7 +1,7 @@
 @startuml
 
 !pragma teoz true
-box "Internal Service" #LightBlue
+box "Internal Service"
 participant Bob
 box "Subteam"
 participant Alice

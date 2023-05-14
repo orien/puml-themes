@@ -16,14 +16,14 @@ end note
 
 Alice -> Bob : A //well formatted// message
 note right of Alice
- This is <back:cadetblue><size:18>displayed</size></back>
+ This is <size:18>displayed</size>
  __left of__ Alice.
 end note
 note left of Bob
- <u:red>This</u> is <color #118888>displayed</color>
- **<color purple>left of</color> <s:red>Alice</strike> Bob**.
+ <u:#$RED>This</u> is <color #$BLUE>displayed</color>
+ **<color:$MAGENTA>left of</color> <s:#$RED>Alice</strike> Bob**.
 end note
 note over Alice, Bob
- <w:#FF33FF>This is hosted</w> by <img sourceforge.jpg>
+ <w:#$MAGENTA>This is hosted</w> by <img:https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png{scale=0.1}>
 end note
 @enduml
