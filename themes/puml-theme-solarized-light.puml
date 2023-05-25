@@ -112,11 +112,6 @@ skinparam Collections {
   font_style()
 }
 
-skinparam SequenceBox {
-  light_style()
-  font_style()
-}
-
 ' Component diagrams
 
 skinparam Interface {
@@ -162,12 +157,41 @@ skinparam Sequence {
   font_style()
   arrow_style()
 
+  Box {
+    light_style()
+    font_style()
+  }
+
+  Delay {
+    light_style()
+    font_style()
+  }
+
   Divider {
     BackgroundColor $LIGHT_BACKGROUND_COLOR
     BorderColor $SECONDARY_FONT_COLOR
     BorderThickness 1
     font_style()
     FontStyle plain
+  }
+
+  Reference {
+    basic_style()
+    font_style()
+    Header {
+        BackgroundColor $LIGHT_BACKGROUND_COLOR
+    }
+  }
+
+  Group {
+    font_style()
+    Body {
+      BackgroundColor $LIGHT_BACKGROUND_COLOR
+    }
+    Header {
+      font_style()
+    }
+    BorderColor $LIGHT_BORDER_COLOR
   }
 
   LifeLineBorderColor $BASE00
