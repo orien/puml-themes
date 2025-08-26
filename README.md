@@ -107,13 +107,6 @@ This repository includes powerful tools for theme development and gallery genera
 - **Purpose:** Automatically generate visual galleries of themes applied to different diagram types
 - **Usage:** Creates comparison images for documentation and testing
 
-### Input Templates
-- **Location:** `tools/input/`
-- **Purpose:** Sample diagrams for testing themes across different PlantUML diagram types
-- **Includes:** Activity, Class, Sequence, State, Use Case, and many more diagram examples
-
-
-
 ## 📚 Resources
 
 - [PlantUML Official Documentation](https://plantuml.com/)
