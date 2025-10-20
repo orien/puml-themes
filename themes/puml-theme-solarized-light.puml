@@ -218,6 +218,10 @@ skinparam Activity {
   SwimlaneTitleFontName $FONT_NAME
 }
 
+skinparam ActivityStartColor $BOX_BACKGROUND
+skinparam ActivityStopColor $LIGHT_BORDER_COLOR
+skinparam ActivityStopInnerColor $BOX_BACKGROUND
+
 skinparam Sequence {
   font_style()
   arrow_style()

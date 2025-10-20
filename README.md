@@ -18,7 +18,7 @@ A carefully crafted light theme based on Ethan Schoonover's acclaimed [Solarized
 
 1. **Download the theme file:**
    ```bash
-   wget https://raw.githubusercontent.com/yourusername/puml-themes/main/themes/puml-theme-solarized-light.puml
+   wget https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-light.puml
    ```
 
 2. **Include in your PlantUML diagram:**
@@ -35,7 +35,7 @@ A carefully crafted light theme based on Ethan Schoonover's acclaimed [Solarized
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/puml-themes.git
+   git clone https://github.com/orien/puml-themes.git
    ```
 
 2. Reference the theme in your diagrams:
@@ -60,7 +60,7 @@ For the latest version, include directly from the repository:
 
 ```plantuml
 @startuml
-!include https://raw.githubusercontent.com/yourusername/puml-themes/main/themes/puml-theme-solarized-light.puml
+!include https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-light.puml
 
 ' Your diagram content here
 @enduml
