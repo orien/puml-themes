@@ -1,0 +1,22 @@
+@startuml
+class ThemeExporter {
+  +export(themeId, format)
+}
+
+class SvgExporter {
+  +export(themeId)
+}
+
+class MarkdownExporter {
+  +export(themeId)
+}
+
+class RenderContext {
+  +fontName
+  +lineColor
+}
+
+ThemeExporter *-- SvgExporter
+ThemeExporter *-- MarkdownExporter
+ThemeExporter o-- RenderContext : configured with
+@enduml

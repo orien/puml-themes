@@ -1,0 +1,19 @@
+@startuml
+interface PaletteProvider {
+  +primaryPalette()
+  +accentPalette()
+}
+
+class SolarizedPaletteProvider {
+  +primaryPalette()
+  +accentPalette()
+  +backgroundColor()
+}
+
+class ThemePreviewer {
+  +render(diagramType)
+}
+
+PaletteProvider <|.. SolarizedPaletteProvider
+ThemePreviewer ..> PaletteProvider : requests palettes
+@enduml

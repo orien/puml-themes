@@ -88,9 +88,65 @@ skinparam Class {
   font_style()
   arrow_style()
 
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
   AttributeFontColor $SECONDARY_FONT_COLOR
   AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
   AttributeIconSize $FONT_SIZE
+}
+
+skinparam Enum {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
+  AttributeFontColor $SECONDARY_FONT_COLOR
+  AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
+}
+
+skinparam Interface {
+  accent_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $LIGHT_BACKGROUND_COLOR
+  BorderColor $LIGHT_BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
+  AttributeFontColor $SECONDARY_FONT_COLOR
+  AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
+}
+
+skinparam Package {
+  light_style()
+  font_style()
+
+  BorderColor $LIGHT_BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 4
+}
+
+skinparam AssociationClass {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
 }
 
 ' Sequence diagrams
@@ -113,11 +169,6 @@ skinparam Collections {
 }
 
 ' Component diagrams
-
-skinparam Interface {
-  accent_style()
-  font_style()
-}
 
 skinparam Component {
   basic_style()

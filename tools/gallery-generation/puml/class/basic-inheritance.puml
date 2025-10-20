@@ -1,0 +1,20 @@
+@startuml
+class ThemeCatalog {
+  +register(themeId, theme)
+  +find(themeId)
+}
+
+abstract class BaseTheme {
+  +apply(skinparam)
+  +fontName
+  +primaryPalette
+}
+
+class SolarizedLightTheme {
+  +primaryPalette
+  +accentPalette
+}
+
+BaseTheme <|-- SolarizedLightTheme
+ThemeCatalog o-- BaseTheme : manages
+@enduml

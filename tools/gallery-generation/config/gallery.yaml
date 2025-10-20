@@ -10,3 +10,8 @@ diagrams:
       - puml/sequence/groups.puml
       - puml/sequence/participants-encompass.puml
       - puml/sequence/divider.puml
+  - name: Class
+    puml:
+      - puml/class/basic-inheritance.puml
+      - puml/class/interface-implementation.puml
+      - puml/class/module-composition.puml
