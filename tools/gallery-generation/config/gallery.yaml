@@ -15,3 +15,8 @@ diagrams:
       - puml/class/basic-inheritance.puml
       - puml/class/interface-implementation.puml
       - puml/class/module-composition.puml
+  - name: Activity
+    puml:
+      - puml/activity/basic-flow.puml
+      - puml/activity/decision-merge.puml
+      - puml/activity/swimlanes.puml

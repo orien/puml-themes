@@ -1,0 +1,16 @@
+@startuml
+start
+partition "Theme Author" {
+  :Update `puml-theme-solarized-light.puml`;
+  :Commit class diagram tweaks;
+}
+partition "Automation" {
+  :Read config/gallery.yaml;
+  :Generate Activity previews;
+}
+partition "Reviewer" {
+  :Inspect rendered gallery;
+  :Approve pull request;
+}
+stop
+@enduml

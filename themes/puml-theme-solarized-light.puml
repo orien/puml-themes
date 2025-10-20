@@ -202,6 +202,20 @@ skinparam Activity {
   basic_style()
   font_style()
   arrow_style()
+
+  StartColor $BOX_BACKGROUND
+  EndColor $BOX_BACKGROUND
+  BarColor $LIGHT_BORDER_COLOR
+
+  Partition {
+    BackgroundColor $LIGHT_BACKGROUND_COLOR
+    BorderColor $LIGHT_BORDER_COLOR
+    FontColor $SECONDARY_FONT_COLOR
+    FontName $FONT_NAME
+  }
+
+  SwimlaneTitleFontColor $SECONDARY_FONT_COLOR
+  SwimlaneTitleFontName $FONT_NAME
 }
 
 skinparam Sequence {

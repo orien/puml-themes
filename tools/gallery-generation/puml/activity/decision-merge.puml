@@ -1,0 +1,11 @@
+@startuml
+start
+:Detect palette change?;
+if (Palette updated?) then (yes)
+  :Adjust $PRIMARY_FONT_COLOR;
+else (no)
+  :Reuse existing palette;
+endif
+:Run gallery script;
+stop
+@enduml

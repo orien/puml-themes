@@ -1,0 +1,7 @@
+@startuml
+start
+:Load Solarized theme;
+:Apply class styling overrides;
+:Regenerate gallery with `asdf exec ruby`;
+stop
+@enduml
