@@ -1,0 +1,322 @@
+'' A dark solarized style
+'' https://ethanschoonover.com/solarized/
+
+!if (%not(%variable_exists("$FONT_NAME")))
+!$FONT_NAME = "Verdana"
+!endif
+
+!if (%not(%variable_exists("$FONT_SIZE")))
+!$FONT_SIZE = 12
+!endif
+!$TITLE_SIZE = $FONT_SIZE + 4
+
+!$BASE03 = "002b36"
+!$BASE02 = "073642"
+!$BASE01 = "586e75"
+!$BASE00 = "657b83"
+!$BASE0 = "839496"
+!$BASE1 = "93a1a1"
+!$BASE2 = "eee8d5"
+!$BASE3 = "fdf6e3"
+!$YELLOW = "b58900"
+!$ORANGE = "cb4b16"
+!$RED = "dc322f"
+!$MAGENTA = "d33682"
+!$VIOLET = "6c71c4"
+!$BLUE = "268bd2"
+!$CYAN = "2aa198"
+!$GREEN = "859900"
+
+!$PRIMARY_FONT_COLOR = $BASE0
+!$SECONDARY_FONT_COLOR = $BASE1
+!$ARROW_COLOR = $BASE0
+!$ARROW_FONT_COLOR = $BASE0
+!$BORDER_COLOR = $BASE0
+!$BOX_BACKGROUND = $BASE02
+!$LIGHT_BORDER_COLOR = $BASE01
+!$BACKGROUND_COLOR = $BASE03
+!$LIGHT_BACKGROUND_COLOR = $BASE02
+
+!procedure font_style()
+  FontColor $PRIMARY_FONT_COLOR
+  FontName $FONT_NAME
+  FontSize $FONT_SIZE
+  StereotypeFontColor $SECONDARY_FONT_COLOR
+  StereotypeFontSize $FONT_SIZE
+!endprocedure
+
+!procedure basic_style()
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+!endprocedure
+
+!procedure light_style()
+  BackgroundColor $LIGHT_BACKGROUND_COLOR
+  BorderColor $LIGHT_BORDER_COLOR
+!endprocedure
+
+!procedure accent_style()
+  light_style()
+!endprocedure
+
+!procedure arrow_style()
+  ArrowColor $ARROW_COLOR
+  ArrowFontName $FONT_NAME
+  ArrowFontColor $ARROW_FONT_COLOR
+  ArrowFontSize $FONT_SIZE
+!endprocedure
+
+skinparam StereotypeCBackgroundColor $BACKGROUND_COLOR
+skinparam BackgroundColor $BACKGROUND_COLOR
+
+skinparam Title {
+  font_style()
+  FontColor $SECONDARY_FONT_COLOR
+  FontSize $TITLE_SIZE
+}
+
+' Class diagrams
+
+skinparam CircledCharacter {
+  Radius 8
+  FontSize $FONT_SIZE
+  FontName $FONT_NAME
+}
+
+skinparam Class {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
+  AttributeFontColor $SECONDARY_FONT_COLOR
+  AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
+  AttributeIconSize $FONT_SIZE
+}
+
+skinparam Enum {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
+  AttributeFontColor $SECONDARY_FONT_COLOR
+  AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
+}
+
+skinparam Interface {
+  accent_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $LIGHT_BACKGROUND_COLOR
+  BorderColor $LIGHT_BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+
+  AttributeFontColor $SECONDARY_FONT_COLOR
+  AttributeFontSize $FONT_SIZE
+  AttributeFontName $FONT_NAME
+}
+
+skinparam Package {
+  light_style()
+  font_style()
+
+  BorderColor $LIGHT_BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 4
+}
+
+skinparam AssociationClass {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  BackgroundColor $BOX_BACKGROUND
+  BorderColor $BORDER_COLOR
+  BorderThickness 1
+  RoundCorner 6
+}
+
+' Sequence diagrams
+
+skinparam Actor {
+  basic_style()
+  font_style()
+  FontStyle bold
+}
+
+skinparam Participant {
+  basic_style()
+  font_style()
+  FontStyle bold
+}
+
+skinparam Collections {
+  basic_style()
+  font_style()
+}
+
+' Component diagrams
+
+skinparam Component {
+  basic_style()
+  font_style()
+}
+
+skinparam Node {
+  basic_style()
+  font_style()
+}
+
+skinparam Database {
+  basic_style()
+  font_style()
+}
+
+skinparam Queue {
+  basic_style()
+  font_style()
+}
+
+' Use Case diagrams
+
+skinparam Usecase {
+  basic_style()
+  font_style()
+  arrow_style()
+}
+
+skinparam Activity {
+  basic_style()
+  font_style()
+  arrow_style()
+
+  StartColor $BOX_BACKGROUND
+  EndColor $BOX_BACKGROUND
+  BarColor $LIGHT_BORDER_COLOR
+
+  Partition {
+    BackgroundColor $LIGHT_BACKGROUND_COLOR
+    BorderColor $LIGHT_BORDER_COLOR
+    FontColor $SECONDARY_FONT_COLOR
+    FontName $FONT_NAME
+  }
+
+  SwimlaneTitleFontColor $SECONDARY_FONT_COLOR
+  SwimlaneTitleFontName $FONT_NAME
+}
+
+skinparam ActivityStartColor $BOX_BACKGROUND
+skinparam ActivityStopColor $LIGHT_BORDER_COLOR
+skinparam ActivityStopInnerColor $BOX_BACKGROUND
+
+skinparam Sequence {
+  font_style()
+  arrow_style()
+
+  Box {
+    light_style()
+    font_style()
+  }
+
+  Delay {
+    light_style()
+    font_style()
+  }
+
+  Divider {
+    BackgroundColor $LIGHT_BACKGROUND_COLOR
+    BorderColor $SECONDARY_FONT_COLOR
+    BorderThickness 1
+    font_style()
+    FontStyle plain
+  }
+
+  Reference {
+    basic_style()
+    font_style()
+    Header {
+        BackgroundColor $LIGHT_BACKGROUND_COLOR
+    }
+  }
+
+  Group {
+    font_style()
+    Body {
+      BackgroundColor $LIGHT_BACKGROUND_COLOR
+    }
+    Header {
+      font_style()
+    }
+    BorderColor $LIGHT_BORDER_COLOR
+  }
+
+  LifeLineBorderColor $BASE0
+  LifeLineBackgroundColor $LIGHT_BACKGROUND_COLOR
+}
+
+skinparam Boundary {
+  accent_style()
+  font_style()
+}
+
+skinparam Control {
+  accent_style()
+  font_style()
+}
+
+skinparam Entity {
+  accent_style()
+  font_style()
+}
+
+' State diagrams
+
+skinparam State {
+  basic_style()
+  font_style()
+  arrow_style()
+}
+
+' Object diagrams
+
+skinparam Object {
+  basic_style()
+  font_style()
+  arrow_style()
+}
+
+' Common
+
+skinparam Note {
+  accent_style()
+  font_style()
+}
+
+skinparam Cloud {
+  basic_style()
+  font_style()
+  arrow_style()
+}
+
+skinparam Rectangle {
+  basic_style()
+  font_style()
+}
+
+skinparam Storage {
+  basic_style()
+  font_style()
+}

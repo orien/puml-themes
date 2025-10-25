@@ -12,19 +12,33 @@ A carefully crafted light theme based on Ethan Schoonover's acclaimed [Solarized
 - Professional appearance suitable for documentation
 - Based on the popular Solarized color scheme
 
+### Solarized Dark
+A dark variant of the Solarized theme, perfect for dark mode environments and reducing eye strain in low-light conditions. Built on the same acclaimed [Solarized color palette](https://ethanschoonover.com/solarized/) with inverted base colors for a sophisticated dark appearance.
+
+**Features:**
+- Dark background with light text for comfortable viewing in low-light environments
+- Maintains the same excellent color contrast as Solarized Light
+- Perfect for dark mode documentation and presentations
+- All diagram types fully supported with consistent dark styling
+
 ## 📦 Installation & Usage
 
 ### Quick Start
 
 1. **Download the theme file:**
    ```bash
+   # For light theme
    wget https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-light.puml
+   
+   # For dark theme
+   wget https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-dark.puml
    ```
 
 2. **Include in your PlantUML diagram:**
    ```plantuml
    @startuml
    !include puml-theme-solarized-light.puml
+   ' Or for dark theme: !include puml-theme-solarized-dark.puml
 
    Alice -> Bob: Hello
    Bob --> Alice: Hi!
@@ -60,7 +74,11 @@ For the latest version, include directly from the repository:
 
 ```plantuml
 @startuml
+' Use Solarized Light theme
 !include https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-light.puml
+
+' Or use Solarized Dark theme
+' !include https://raw.githubusercontent.com/orien/puml-themes/main/themes/puml-theme-solarized-dark.puml
 
 ' Your diagram content here
 @enduml
@@ -70,11 +88,13 @@ For the latest version, include directly from the repository:
 
 ### Sequence Diagrams
 
-The Solarized Light theme provides beautiful styling for sequence diagrams with clear participant boxes, readable fonts, and subtle color accents.
+Both Solarized themes provide beautiful styling for sequence diagrams with clear participant boxes, readable fonts, and subtle color accents.
 
-![Sequence Participants](themes/puml-theme-solarized-light.md#gallery)
-
+**Solarized Light Gallery:**
 *See the full gallery in [themes/puml-theme-solarized-light.md](themes/puml-theme-solarized-light.md)*
+
+**Solarized Dark Gallery:**
+*See the full gallery in [themes/puml-theme-solarized-dark.md](themes/puml-theme-solarized-dark.md)*
 
 ## ⚙️ Customization
 

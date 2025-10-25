@@ -1,6 +1,7 @@
 url: 'https://raw.githubusercontent.com/orien/puml-themes/main/themes/'
 themes:
   - solarized-light
+  - solarized-dark
 diagrams:
   - name: Sequence
     puml:
